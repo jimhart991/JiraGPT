@@ -1,15 +1,15 @@
-openapi: 3.0.0
+openapi: 3.1.0
 info:
   title: Jira Cloud API
   version: 1.0.0
-  description: API spec to interact with Jira Cloud. Supports issues, projects, comments, users, and advanced issue types like Epics and Initiatives.
+  description: Interact with Jira Cloud to manage issues, epics, comments, and users.
 servers:
-  - url: https://paymentology.atlassian.net
-    description: Replace with your Jira Cloud domain
+  - url: https://your-domain.atlassian.net
 
 paths:
   /rest/api/3/issue:
     post:
+      operationId: createIssue
       summary: Create a new Jira issue (Story, Epic, Initiative, etc.)
       requestBody:
         required: true
@@ -26,6 +26,7 @@ paths:
 
   /rest/api/3/issue/{issueIdOrKey}:
     get:
+      operationId: getIssue
       summary: Get a specific issue by ID or key
       parameters:
         - in: path
@@ -37,6 +38,7 @@ paths:
         '200':
           description: Issue details
     put:
+      operationId: updateIssue
       summary: Update a Jira issue
       parameters:
         - in: path
@@ -59,6 +61,7 @@ paths:
 
   /rest/api/3/issue/{issueIdOrKey}/comment:
     post:
+      operationId: addComment
       summary: Add a comment to an issue
       parameters:
         - in: path
@@ -81,6 +84,7 @@ paths:
 
   /rest/api/3/search:
     get:
+      operationId: searchIssues
       summary: Search issues using JQL
       parameters:
         - in: query
@@ -100,6 +104,7 @@ paths:
 
   /rest/api/3/project:
     get:
+      operationId: listProjects
       summary: List all projects
       responses:
         '200':
@@ -107,6 +112,7 @@ paths:
 
   /rest/api/3/issuetype:
     get:
+      operationId: listIssueTypes
       summary: List all issue types (e.g., Story, Task, Bug, Epic, Initiative)
       responses:
         '200':
@@ -114,6 +120,7 @@ paths:
 
   /rest/api/3/issue/{issueIdOrKey}/assignee:
     put:
+      operationId: assignIssue
       summary: Assign an issue to a user
       parameters:
         - in: path
@@ -136,6 +143,7 @@ paths:
 
   /rest/api/3/user/search:
     get:
+      operationId: searchUsers
       summary: Search for a Jira user by name or email
       parameters:
         - in: query
