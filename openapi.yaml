@@ -4,7 +4,7 @@ info:
   version: 1.0.0
   description: API spec to interact with Jira Cloud. Supports issues, projects, comments, users, and advanced issue types like Epics and Initiatives.
 servers:
-  - url: https://your-domain.atlassian.net
+  - url: https://paymentology.atlassian.net
     description: Replace with your Jira Cloud domain
 
 paths:
